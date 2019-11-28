@@ -18,6 +18,7 @@ import { ViewEdit } from './ViewEdit';
 import { FullFileCompare } from './FullFileCompare';
 import { Files_834 } from './Files_834'; 
 import {EnrollmentDetails} from './Enrollment_details'
+import {EnrollmentErrors} from './Enrollment_errors'
 
 export class Home extends React.Component{
     constructor(props){
@@ -67,8 +68,8 @@ export class Home extends React.Component{
                             this.state.flag == Strings.claimsDashboard_834_details ? <Files_834 flag={"total"}/> :
                             this.state.flag == Strings.EnrollmentError ? <Files_834 flag={"error"}/> :
                             this.state.flag == Strings.EnrollmentDetails ? <EnrollmentDetails /> :
+                            this.state.flag == Strings.EnrollmentErrors ? <EnrollmentErrors /> :
                             <EnrollmentInbound />
-                            
                         }
                     </div>
                 </div>

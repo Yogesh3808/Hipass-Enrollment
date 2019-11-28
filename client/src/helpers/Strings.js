@@ -28,6 +28,7 @@ const Strings = {
     fullFile834 : 'fullFile834',
     EnrollmentError : 'Enrollment_Error',
     EnrollmentDetails: 'EnrollmentDetails',
+    EnrollmentErrors: 'EnrollmentErrors',
 }
 
 export default Strings;

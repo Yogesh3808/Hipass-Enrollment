@@ -36,6 +36,7 @@ export class Sidebar extends React.Component{
                 // {value: 'Configure Custom Edit', key: 'editConfiguration'},
                 // {value: 'View Custom Edit', key: 'viewEdit'},
                 {value: 'Enrollment Details', key:'EnrollmentDetails'},
+                {value: 'Enrollment Errors', key:'EnrollmentErrors'},
             ],
             eligibility: [
                 {value: 'Real Time - 270', key: 'realTime'},
