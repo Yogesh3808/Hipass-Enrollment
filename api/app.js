@@ -725,6 +725,35 @@ const Eligibility276 = new graphql.GraphQLObjectType({
         Error: { type: graphql.GraphQLInt }
     }
 });
+//SP_GetenrollmentDetails834
+const SP_GetenrollmentDetails834 = new graphql.GraphQLObjectType({
+    name: "SP_GetenrollmentDetails834",
+    fields: {
+        ID: { type: graphql.GraphQLInt },
+        SFHPID: { type: graphql.GraphQLString },
+        CIN: { type: graphql.GraphQLString },		
+        FirstName: { type: graphql.GraphQLString },	
+        LastName: { type: graphql.GraphQLString },		
+        Member_Birth_date: { type: graphql.GraphQLString },		
+        Eligibility_Errors: { type: graphql.GraphQLString },		
+        Inbound_X12_status: { type: graphql.GraphQLString },		
+        Qnxt_status: { type: graphql.GraphQLString },		
+        X12_Eff_date: { type: graphql.GraphQLString },		
+        Qeffdate: { type: graphql.GraphQLString },		
+        X12_Term_date: { type: graphql.GraphQLString },		
+        Qenddate: { type: graphql.GraphQLString },		
+        F834ToQNXT: { type: graphql.GraphQLString },		
+        Member_death_date: { type: graphql.GraphQLString },		
+        FAMEDetails_status: { type: graphql.GraphQLString },		
+        CustomDB_staus: { type: graphql.GraphQLString },		
+        PlanIntegration_status: { type: graphql.GraphQLString },		
+        IPA_status: { type: graphql.GraphQLString },		
+        Plancode: { type: graphql.GraphQLString },		
+        Error_Type: { type: graphql.GraphQLString },		
+        custome_errors: { type: graphql.GraphQLString },		
+        Outbound_status: { type: graphql.GraphQLString }
+    }
+});
 
 const IntakeClaimDatatblwithFile = new graphql.GraphQLObjectType({
     name: "IntakeClaimDatatblwithFile",
@@ -1365,6 +1394,24 @@ var queryType = new graphql.GraphQLObjectType({
                             });
                         }
                     });                     
+                });
+            }
+        },
+        SP_GetenrollmentDetails834 : {
+            type: graphql.GraphQLList(SP_GetenrollmentDetails834),
+            resolve: (root, {args}, context, info) => {
+                return new Promise((resolve, reject) => {
+                    strQuery = "execute SP_GetenrollmentDetails834GQL ";
+                    // console.log(strQuery);
+                    var request = new _sqlPackage.Request();
+                    request.query(strQuery, function (error, responseResult) {
+                        if (error) {
+                            reject([]);
+                        }
+                        else {
+                            resolve(responseResult.recordset);
+                        }
+                    });
                 });
             }
         },
