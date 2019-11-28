@@ -35,6 +35,7 @@ export class Sidebar extends React.Component{
                 {value: 'Trading Partner Management', key: 'tradingPartnerConfiguration'},
                 {value: 'Configure Custom Edit', key: 'editConfiguration'},
                 {value: 'View Custom Edit', key: 'viewEdit'},
+                {value: 'Enrollment Details', key:'EnrollmentDetails'},
             ],
             eligibility: [
                 {value: 'Real Time - 270', key: 'realTime'},
@@ -76,7 +77,7 @@ export class Sidebar extends React.Component{
         return(
             <div>
                 {this.renderItems(Strings.ENR_MANAGEMENT, 'Enrollment Management', this.state.enrollmentArray)}
-                {this.renderItems(Strings.TRAD_MANAGEMENT, 'Admin', this.state.tradingPartner)}
+                {this.renderItems(Strings.TRAD_MANAGEMENT, '834 Full File Compare', this.state.tradingPartner)}
                 {/* {this.renderItems(Strings.CLAIMS, 'Claims Management', this.state.claimsArray)}
                 {this.renderItems(Strings.ELIGIBILITY, 'Eligibility Management', this.state.eligibility)}
                 {this.renderItems(Strings.EDIT_CLAIM, 'Edit / Resubmit Claim', this.state.pageArray)}

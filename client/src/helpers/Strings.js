@@ -27,6 +27,7 @@ const Strings = {
     viewEdit : 'viewEdit',
     fullFile834 : 'fullFile834',
     EnrollmentError : 'Enrollment_Error',
+    EnrollmentDetails: 'EnrollmentDetails',
 }
 
 export default Strings;
