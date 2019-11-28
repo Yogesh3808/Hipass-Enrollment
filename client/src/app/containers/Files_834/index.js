@@ -73,6 +73,26 @@ export class Files_834 extends React.Component {
             Updatefild = this.state.PolicyNo;
             
         }
+        if (this.state.Error_Field == "dob")
+        {
+            Updatefild = this.state.dateofbirth;
+            
+        }
+        if (this.state.Error_Field == "gender")
+        {
+            Updatefild = this.state.gender;
+            
+        }
+        if (this.state.Error_Field == "PolicyNo")
+        {
+            Updatefild = this.state.PolicyNo;
+            
+        }
+        if (this.state.Error_Field == "DepartmentNo")
+        {
+            Updatefild = this.state.DepartmentNo;
+            
+        }
         var query = 'mutation{ SP_Update834errordetails(FileId :"'+ this.state.File_ID +'" '+ 'Nm109 :"'+this.state.subscriberNo +'" '+ ' Errordesc :"'+this.state.Error_Field +'" '+ 'Value :"'+ Updatefild +'"'+   
         ')'+
 '}'
@@ -200,6 +220,24 @@ export class Files_834 extends React.Component {
             [key]: event.target.value
         });
     }
+    dateofbirth(event, key) {
+       
+        this.setState({
+            [key]: event.target.value
+        });
+    }
+    gender(event, key) {
+       
+        this.setState({
+            [key]: event.target.value
+        });
+    }
+    DepartmentNo(event, key) {
+       
+        this.setState({
+            [key]: event.target.value
+        });
+    }
 
     handleClick(fileId, subscriber, type) {
         let query = '{ SP_834FileHeaderDetails(FileID: '+'"'+fileId +'"'+', Subscriber:'+'"'+subscriber +'"'+', Type: '+type +') { FileName FileID sender receiver SubscriberNo MemberFName MemberLName Telephone StreetAddress City State PostalCode Enrollment_type dob gender InsLineCode MemberAmount EnrollmentStatus StartDate EndDate CreateDateTime relationship member_relationship_name } }'
@@ -255,29 +293,45 @@ export class Files_834 extends React.Component {
                    // {key : "Receiver", value : data[0].receiver}     
                     ]
                   
-                  var CheckError= this.state.error_status;
+                  var CheckError=  data[0].Error_Field;
                   var SubscriberNo="";           
-                  if(CheckError=="Missing subscriber ID")
+                  if(CheckError=="Subscriber")
                   {
                     SubscriberNo= <input onChange={(e) => this.subscriber(e, 'subscriberNo')} type='text' style={{width:"80px"}}></input>
                   }else{
                     SubscriberNo= data[0].SubscriberNo
                   }
                   var Member_Policy_No="";           
-                  if(CheckError=="Missing member Policy Number")
+                  if(CheckError=="PolicyNo")
                   {
                     Member_Policy_No= <input  onChange={(e) => this.PolicyNo(e, 'PolicyNo')} type='text' style={{width:"80px"}}></input>
                   }else{
                     Member_Policy_No= data[0].Member_Policy_No
                   }
+                  var dateofbirth="";    
+               
+                  if(CheckError=="dob")
+                  {
+                    dateofbirth= <input  onChange={(e) => this.dateofbirth(e, 'dateofbirth')} type='text' style={{width:"80px"}}></input>
+                  }else{
+                    dateofbirth= data[0].dateofbirth
+                  }
 
                   var gender="";    
                
-                  if(CheckError=="Missing subscriber demographic details. It could be either date of birth or gender information")
+                  if(CheckError=="gender")
                   {
-                    gender= <input type='text' style={{width:"80px"}}></input>
+                    gender= <input type='text' onChange={(e) => this.gender(e, 'gender')} style={{width:"80px"}}></input>
                   }else{
                     gender= data[0].gender
+                  }
+                  var DepartmentNo="";    
+               
+                  if(CheckError=="DepartmentNo")
+                  {
+                    DepartmentNo= <input type='text' onChange={(e) => this.DepartmentNo(e, 'DepartmentNo')} style={{width:"80px"}}></input>
+                  }else{
+                    DepartmentNo= data[0].Department_Agency
                   }
                     let memberInfo = [
                        {key : "First Name", value: data[0].MemberFName},
@@ -288,10 +342,10 @@ export class Files_834 extends React.Component {
                         {key : "State", value: data[0].State},
                         {key : "Postal Code", value: data[0].PostalCode},
                         {key : "Insurer Name", value: data[0].N1_Plan_insurer_name},
-                        {key : "Dob", value: data[0].dob},
+                        {key : "Dob", value: dateofbirth},
                         {key : "Gender", value: gender},                                            
                         {key : "Subscriber No",  value:SubscriberNo },
-                        {key : "Department Agency", value: data[0].Department_Agency},
+                        {key : "Department Agency", value: DepartmentNo},
                         {key : "Policy No", value:Member_Policy_No},
                         {key : "Enrollment Type", value: data[0].Enrollment_type},
                         {key : "Employment Begin Date", value:data[0].DTP_336_Employment_BeginDT},
@@ -424,7 +478,7 @@ rendersearchbar()
                                         subscriberNo: item.SubscriberNo,
                                         enrollment_type: item.Enrollment_type,
                                         Insurer_Status: item.Insurer_Status,
-                                        error_status: item.Error
+                                        error_status: item.Error_Field
                                         
                                     })
 
@@ -517,7 +571,19 @@ rendersearchbar()
             </div>
         )
     }
-
+    renderButton() {
+        if(this.state.Error_Field!="")
+        {
+        return (
+            
+            <div>
+                
+            <button onClick={this.Saved} style={{backgroundColor:"#139DC9" ,color:"#FFFFFF" }}>Correct & Resubmit</button>
+            <button onClick={this.Ignore} style={{backgroundColor:"#139DC9" ,color:"#FFFFFF"}}>Ignore Error</button>
+            </div>               
+        )
+        }
+    }
     renderTable() {
         let row = []
         const data = this.state.coverage_data;
@@ -557,9 +623,7 @@ rendersearchbar()
                             {this.renderHeader('Member Info')}
                             {this.renderRows(this.state.memberInfo)}
                             <br></br>
-                          
-                            <button onClick={this.Saved} style={{backgroundColor:"#139DC9" ,color:"#FFFFFF" }}>Correct & Resubmit</button>
-                            <button onClick={this.Ignore} style={{backgroundColor:"#139DC9" ,color:"#FFFFFF"}}>Ignore Error</button>
+                            {this.renderButton()}
                             
                             </table> : null
                 }
