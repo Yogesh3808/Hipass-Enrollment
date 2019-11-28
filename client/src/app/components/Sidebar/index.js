@@ -21,7 +21,7 @@ export class Sidebar extends React.Component{
                 {value: '834 Enrollment Dashboard', key: 'claimsDashboard_834'},
                 {value: 'Enrollment Details', key: 'claimsDashboard_834_details'},
                 {value: 'Enrollment Error', key: 'Enrollment_Error'},
-                {value: 'Full File Comparison Dashboard', key: 'fullFile834'},
+                // {value: 'Full File Comparison Dashboard', key: 'fullFile834'},
             ],
             pageArray : [
                 {value: 'Page 1'},
@@ -32,9 +32,9 @@ export class Sidebar extends React.Component{
                 {value: 'Validation'},
             ],
             tradingPartner: [
-                {value: 'Trading Partner Management', key: 'tradingPartnerConfiguration'},
-                {value: 'Configure Custom Edit', key: 'editConfiguration'},
-                {value: 'View Custom Edit', key: 'viewEdit'},
+                // {value: 'Trading Partner Management', key: 'tradingPartnerConfiguration'},
+                // {value: 'Configure Custom Edit', key: 'editConfiguration'},
+                // {value: 'View Custom Edit', key: 'viewEdit'},
                 {value: 'Enrollment Details', key:'EnrollmentDetails'},
             ],
             eligibility: [
