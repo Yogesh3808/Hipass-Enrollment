@@ -1,5 +1,5 @@
 .div-data1{
-    text-align:left; display:inline-block;height:75px;font-size:12px;margin-left: -20px; color:#FFFFFF;width: 12.49995%;
+    text-align:left; display:inline-block;height:75px;font-size:12px;margin-left: -30px; color:#FFFFFF;width: 12.49995%;
 }
 
 .disct{
@@ -20,5 +20,9 @@
 
 .error-list {
     background-color: white;
+    font-size: 12px;
+}
+.table-header-text {
+    color: white;
     font-size: 12px;
 }

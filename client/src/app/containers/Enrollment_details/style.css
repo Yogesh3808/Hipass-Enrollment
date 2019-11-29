@@ -17,3 +17,7 @@
     padding: 7px !important;
 }
 .col-pixel-width-100 { flex: 0 0 200px; }
+.table-header-text {
+    color: white;
+    font-size: 12px;
+}

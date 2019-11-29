@@ -87,21 +87,21 @@ export class EnrollmentDetails extends React.Component {
     renderTableHeader() {
         return (
             <tr className="table-head">
-                <td className="table-head-text">SFHPID</td>
-                <td className="table-head-text">CIN</td>
-                <td className="table-head-text">LastName</td>
-                <td className="table-head-text">FirstName</td>
-                <td className="table-head-text">Member Birth date</td>
-                <td className="table-head-text">Inbound Status</td>
-                <td className="table-head-text">QNXT Status</td>
-                <td className="table-head-text">X12 Eff Date</td>
-                <td className="table-head-text">QNXT Eff Date</td>
-                <td className="table-head-text">X12 End Date</td>
-                <td className="table-head-text">QNXT End Date</td>
-                <td className="table-head-text">834 To QNXT</td>
-                <td className="table-head-text">Custom Error</td>
-                <td className="table-head-text">Custom Status</td>
-                <td className="table-head-text">IPA Status</td>
+                <td className="table-header-text">SFHPID</td>
+                <td className="table-header-text">CIN</td>
+                <td className="table-header-text">LastName</td>
+                <td className="table-header-text">FirstName</td>
+                <td className="table-header-text">Member Birth date</td>
+                <td className="table-header-text">Inbound Status</td>
+                <td className="table-header-text">QNXT Status</td>
+                <td className="table-header-text">X12 Eff Date</td>
+                <td className="table-header-text">QNXT Eff Date</td>
+                <td className="table-header-text">X12 End Date</td>
+                <td className="table-header-text">QNXT End Date</td>
+                <td className="table-header-text">834 To QNXT</td>
+                <td className="table-header-text">Custom Error</td>
+                <td className="table-header-text">Custom Status</td>
+                <td className="table-header-text">IPA Status</td>
 
             </tr>
         )
