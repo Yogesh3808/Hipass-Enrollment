@@ -20,6 +20,7 @@ import { Files_834 } from './Files_834';
 import {EnrollmentDetails} from './Enrollment_details'
 import {EnrollmentErrors} from './Enrollment_errors'
 
+const $ = window.$;
 export class Home extends React.Component{
     constructor(props){
         super(props);

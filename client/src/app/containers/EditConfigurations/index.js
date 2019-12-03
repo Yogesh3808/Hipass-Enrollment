@@ -2,6 +2,7 @@ import React from 'react';
 import '../TradingPartnerConfiguration/style.css';
 import { Topbar } from '../../components/Topbar';
 
+const $ = window.$;
 export class EditConfiguration extends React.Component {
 
     constructor(props) {

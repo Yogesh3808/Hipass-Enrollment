@@ -4,6 +4,8 @@ import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
+
+const $ = window.$;
 export class Files_834 extends React.Component {
 
     constructor(props) {
@@ -241,7 +243,7 @@ export class Files_834 extends React.Component {
 
     handleClick(fileId, subscriber, type) {
         let query = '{ SP_834FileHeaderDetails(FileID: '+'"'+fileId +'"'+', Subscriber:'+'"'+subscriber +'"'+', Type: '+type +') { FileName FileID sender receiver SubscriberNo MemberFName MemberLName Telephone StreetAddress City State PostalCode Enrollment_type dob gender InsLineCode MemberAmount EnrollmentStatus StartDate EndDate CreateDateTime relationship member_relationship_name } }'
- 
+        console.log('query : ', query)
         fetch('http://localhost:4000/graphQl', {
             method: 'POST',
             headers: {
@@ -253,7 +255,7 @@ export class Files_834 extends React.Component {
             .then(res => res.json())
             .then(r => {
                 let data1 = []
-                data1 = r.data1.SP_834FileHeaderDetails
+                data1 = r.data.SP_834FileHeaderDetails
               
              
                 let coverage_data = []
@@ -265,7 +267,6 @@ export class Files_834 extends React.Component {
                 });
 
                 this.setState({
-                    file: file,
                     coverage_data: coverage_data
                 })
             })
@@ -447,7 +448,7 @@ rendersearchbar()
         let count = 0
         try {
             count = data[Object.keys(data)[0]].value.dcount / 10
-            if(data[keys].value.dcount % 10 > 0){
+            if(data[Object.keys(data)[0]].value.dcount % 10 > 0){
                 count = count + 1
             }
         } catch (error) {
