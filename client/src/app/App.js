@@ -4,7 +4,7 @@ import {render} from 'react-dom'
 import {Header} from './components/Header'
 import {Home} from './containers/Home'
 
-class App extends React.Component{
+export default class App extends React.Component{
     render() {
         return (
             <div>
@@ -14,5 +14,3 @@ class App extends React.Component{
         );
     }
 }
-
-render(<App/>, window.document.getElementById('app'));

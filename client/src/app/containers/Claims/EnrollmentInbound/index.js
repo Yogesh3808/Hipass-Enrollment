@@ -4,6 +4,7 @@ import { Pie, Bar } from 'react-chartjs-2';
 import moment from 'moment';
 import {Files_834} from '../../Files_834';
 import { Topbar } from '../../../components/Topbar';
+import Urls from '../../../../helpers/Urls';
 
 const data = {
     labels: [
@@ -107,7 +108,7 @@ export class EnrollmentInbound extends React.Component {
 
     getErrorCount(){
         let query = '{ CompareFileError834 { dbdesc error_desc RCount } }'
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -149,7 +150,7 @@ export class EnrollmentInbound extends React.Component {
             }
         }`
 
-        fetch("http://localhost:4000/graphQl", {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

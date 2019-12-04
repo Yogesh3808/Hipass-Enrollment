@@ -2,6 +2,7 @@ import React from 'react'
 import '../../Claims/Dashboard/styles.css'
 import {Pie, Bar} from 'react-chartjs-2';
 import moment from 'moment';
+import Urls from '../../../../helpers/Urls';
 
 const data = {
 	labels: [
@@ -93,7 +94,7 @@ export class RealTime extends React.Component{
             }`
         }
 
-        fetch("http://localhost:4000/graphQl", {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -140,7 +141,7 @@ export class RealTime extends React.Component{
             query = "{ EligibilityErrorDtlTypewise (TypeID:\""+typeId+"\"){ Trans_CountID TypeOfTransaction AvgResTime TotalNumOfReq Success Error Date Trans_type Submiter Trans_ID Error_Code } }"
         }
 
-        fetch("http://localhost:4000/graphQl", {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

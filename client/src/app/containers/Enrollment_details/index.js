@@ -3,6 +3,7 @@ import moment from 'moment';
 import './style.css'
 import {Files_834} from '../Files_834';
 import { Topbar } from '../../components/Topbar';
+import Urls from '../../../helpers/Urls';
 
 
 export class EnrollmentDetails extends React.Component {
@@ -52,7 +53,7 @@ export class EnrollmentDetails extends React.Component {
               }
         }`
 
-        fetch("http://localhost:4000/graphQl", {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

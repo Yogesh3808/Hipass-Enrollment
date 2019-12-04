@@ -2,6 +2,7 @@ import React from 'react';
 import '../../containers/Files/files-styles.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Urls from '../../../helpers/Urls';
 
 export class Topbar extends React.Component {
  
@@ -42,7 +43,7 @@ export class Topbar extends React.Component {
            
         }`
 
-          fetch("http://localhost:4000/graphQl", {
+          fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -157,14 +158,14 @@ export class Topbar extends React.Component {
                     </div>)
                 }
 
-                <div className="col-sm-3">
-                <label className="list-header">Start Date</label>
-                <DatePicker className="form-control list-header" selected={this.state.startDate} onChange={this.handleChange.bind(this)} />
+                <div className="form-group col-sm-2">
+                    <label className="list-header">Start Date</label>
+                    <DatePicker className="form-control list-header" selected={this.state.startDate} onChange={this.handleChange.bind(this)} />
                 </div>
 
-                <div className="col-sm-3">
-                <label className="list-header">End Date</label>
-                <DatePicker className="form-control list-header" selected={this.state.endDate} onChange={this.changeDate.bind(this)} />
+                <div className="form-group col-sm-2">
+                    <label className="list-header">End Date</label>
+                    <DatePicker className="form-control list-header" selected={this.state.endDate} onChange={this.changeDate.bind(this)} />
                 </div>
 
             </div>

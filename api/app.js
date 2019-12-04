@@ -2038,7 +2038,7 @@ var queryType = new graphql.GraphQLObjectType({
 
                     
                     strQuery = "execute SP_834FileDetailsPaging '"+ Type +"',"+ PageIndex +","+ FileID;
-                    // console.log(strQuery);
+                    console.log(strQuery);
                     
                             var request = new _sqlPackage.Request();
                             request.query(strQuery, function (error, responseResult) {

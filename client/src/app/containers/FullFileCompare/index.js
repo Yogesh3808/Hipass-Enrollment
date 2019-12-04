@@ -2,6 +2,7 @@ import React from 'react';
 import { Topbar } from '../../components/Topbar';
 import '../Files/files-styles.css';
 import moment from 'moment'
+import Urls from '../../../helpers/Urls';
 
 let enrollmentCount = 0
 
@@ -38,7 +39,7 @@ export class FullFileCompare extends React.Component {
     getCounts(){
         let query = '{ CompareFileDetail(file1: "First_file.txt", file2: "Second_File.txt") { totalfilecount RCount seqid INS_Insurer_Status SubscriberNo MemberFName MemberLName StreetAddress City State PostalCode dob gender DX Subscriber_Home_Phone Ref_Master_Policy_No INS_Maintenance_Reason_code DTP_336_Employment_BeginDT NM109_Indetificationcode Plan_Coverage_Level INS_Insurer_Benefit_status startdate enddate } }'
 
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -60,7 +61,7 @@ export class FullFileCompare extends React.Component {
 
     getErrorCount(){
         let query = '{ CompareFileError834 { dbdesc error_desc RCount } }'
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +86,7 @@ export class FullFileCompare extends React.Component {
             query = '{ CompareFileHeader2_834 { FileName fileDt total_file Total_enrollment addition Change term Auditcount MemberCount DependantCount } }'
         }
 
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
