@@ -61,7 +61,9 @@ export class Files_834 extends React.Component {
    })
  })
    .then(r => r.json())
-   .then(data => console.log('data returned:', data));
+   .then(data => 
+    alert(data.data.SP_Ignore834errordetails)
+    );
     }
 
     
@@ -113,8 +115,13 @@ export class Files_834 extends React.Component {
   })
 })
   .then(r => r.json())
-  .then(data => console.log('data returned:', data));
+  .then(data => 
+    alert(data.data.SP_Update834errordetails)
+    
       
+  );
+  
+  
     }
   
   
