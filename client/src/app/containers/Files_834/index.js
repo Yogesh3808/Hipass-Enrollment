@@ -300,7 +300,7 @@ export class Files_834 extends React.Component {
                     let file = [
                        {key : "File Name", value : data[0].FileName},
                         {key : "File Date", value : data[0].CreateDateTime},
-                        {key : "Sender", value : data[0].sender},
+                        {key : "Sender", value : data[0].sender}, 
                    // {key : "Receiver", value : data[0].receiver}     
                     ]
                   
