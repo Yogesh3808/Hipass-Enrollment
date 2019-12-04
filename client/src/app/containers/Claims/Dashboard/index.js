@@ -3,6 +3,7 @@ import './styles.css';
 import {Pie, Bar} from 'react-chartjs-2';
 import moment from 'moment';
 import {Files} from '../../Files';
+import Urls from '../../../../helpers/Urls';
 
 const data = {
 	labels: [
@@ -152,7 +153,7 @@ export class Claims extends React.Component{
             console.log("hey here it is !!", JSON.stringify(this.props.state))
         }
 
-        fetch("http://localhost:4000/graphQl", {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import React from 'react';
 import '../../containers/Files/files-styles.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Urls from '../../../helpers/Urls';
 
 export class Topbar extends React.Component {
  
@@ -42,7 +43,7 @@ export class Topbar extends React.Component {
            
         }`
 
-          fetch("http://localhost:4000/graphQl", {
+          fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

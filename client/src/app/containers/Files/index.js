@@ -3,6 +3,7 @@ import './files-styles.css';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import Urls from '../../../helpers/Urls';
 
 export class Files extends React.Component {
 
@@ -77,7 +78,7 @@ export class Files extends React.Component {
             }
         }`
 
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -114,7 +115,7 @@ export class Files extends React.Component {
     }
 
     getClaimData(FileID, ClaimID) {
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

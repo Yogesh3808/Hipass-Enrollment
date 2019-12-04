@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../Claims/Dashboard/styles.css'
 import moment from 'moment';
+import Urls from '../../../../helpers/Urls';
 
 export class ClaimsError extends React.Component{
     
@@ -35,7 +36,7 @@ export class ClaimsError extends React.Component{
             }
           }`
 
-        fetch("http://localhost:4000/graphQl", {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

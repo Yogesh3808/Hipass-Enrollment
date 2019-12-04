@@ -4,6 +4,7 @@ import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
+import Urls from '../../../helpers/Urls';
 
 const $ = window.$;
 export class Files_834 extends React.Component {
@@ -24,6 +25,7 @@ export class Files_834 extends React.Component {
             coverage_data: [],
             error_status: '',
             Error_Field:'',
+            isInitial: true
         }
 
         this.getData = this.getData.bind(this)
@@ -33,6 +35,7 @@ export class Files_834 extends React.Component {
         this.handleClick = this.handleClick.bind(this)
         this.Ignore = this.Ignore.bind(this)
         this.Saved = this.Saved.bind(this)
+        this.onClick = this.onClick.bind(this)
         
     }
 
@@ -46,7 +49,7 @@ export class Files_834 extends React.Component {
         var query = 'mutation{ SP_Ignore834errordetails(FileId :"'+ this.state.File_ID +'" '+ 'Nm109 :"'+this.state.subscriberNo +'"'+   
          ')'+
 '}'
-    fetch('http://localhost:4000/graphQl', {
+    fetch(Urls.base_url, {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json',
@@ -98,7 +101,7 @@ export class Files_834 extends React.Component {
         var query = 'mutation{ SP_Update834errordetails(FileId :"'+ this.state.File_ID +'" '+ 'Nm109 :"'+this.state.subscriberNo +'" '+ ' Errordesc :"'+this.state.Error_Field +'" '+ 'Value :"'+ Updatefild +'"'+   
         ')'+
 '}'
-   fetch('http://localhost:4000/graphQl', {
+   fetch(Urls.base_url, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -118,7 +121,7 @@ export class Files_834 extends React.Component {
     getData() {
         let query = '{SP_834FilecountwisedetailsGQL(Type:'+'"'+this.props.flag+'"'+'){ FileName FileID  sender receiver FileStatus CreateDateTime dcount  }}'
         console.log('query : ' + query)
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -143,7 +146,7 @@ export class Files_834 extends React.Component {
     }
 
     getClaimData(FileID, ClaimID) {
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -164,9 +167,12 @@ export class Files_834 extends React.Component {
     }
 
     onClick(fileId){
+        if(this.state.isInitial){
+            return
+        }
         let query = '{ SP_834FileDetailsPagingGQL(Type :'+'"'+this.props.flag+'"'+', PageIndex:'+this.state.page+', FileID: '+fileId+') { SubscriberNo fileid Enrollment_type InsLineCode Insurer_Status TransCode MemberAmount Error CreateDateTime status1 } }'
-        console.log("Query : " + query)
-        fetch('http://localhost:4000/graphQl', {
+        console.log(query)
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -208,6 +214,10 @@ export class Files_834 extends React.Component {
         this.setState({
             claimsObj: files
         })
+
+        setTimeout(() => {
+            this.setState({isInitial : false})
+        }, 500);
     }
 
     Subscriber(event, key) {
@@ -244,7 +254,7 @@ export class Files_834 extends React.Component {
     handleClick(fileId, subscriber, type) {
         let query = '{ SP_834FileHeaderDetails(FileID: '+'"'+fileId +'"'+', Subscriber:'+'"'+subscriber +'"'+', Type: '+type +') { FileName FileID sender receiver SubscriberNo MemberFName MemberLName Telephone StreetAddress City State PostalCode Enrollment_type dob gender InsLineCode MemberAmount EnrollmentStatus StartDate EndDate CreateDateTime relationship member_relationship_name } }'
         console.log('query : ', query)
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -274,7 +284,7 @@ export class Files_834 extends React.Component {
 
             let query1 = '{ SP_834EnrollementDetails(FileID: '+'"'+fileId +'"'+', Subscriber:'+'"'+subscriber +'") { FileName   FileID   sender   receiver   IdentificationCode   InsurerStatus   SubscriberNo   MemberFName   MemberLName   Telephone   StreetAddress   City   State   PostalCode   Enrollment_type   dob   gender   Emplymentstatus   CreateDateTime   INS_Insurer_relationship   member_relationship_name   Plan_Coverage_Level   DTP_336_Employment_BeginDT   Member_Policy_No   Department_Agency   Error_Field   N1_Plan_insurer_name } }'
         
-            fetch('http://localhost:4000/graphQl', {
+            fetch(Urls.base_url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -433,7 +443,7 @@ rendersearchbar()
     handlePageClick(data, fileId){
         let page = data.selected + 1
         this.setState({
-            page : page
+            page : page,
         })
 
         setTimeout(() => {
@@ -445,23 +455,16 @@ rendersearchbar()
         let row = []
         let col = []
         let data = this.state.claimsObj;
-        let count = 0
-        try {
-            count = data[Object.keys(data)[0]].value.dcount / 10
-            if(data[Object.keys(data)[0]].value.dcount % 10 > 0){
-                count = count + 1
-            }
-        } catch (error) {
-            
-        }
 
         Object.keys(data).map((keys) => {
             row.push(
                 <div className="row">
-                    <div className="col-3 col-style"><a href={"#" + data[keys].value.FileID} onClick={() => {this.onClick(data[keys].value.FileID)}} style={{ color: "#6AA2B8" }} data-toggle="collapse" aria-expanded="false">{data[keys].value.FileName}</a></div>
+                    <div className="col-3 col-style"><a href={"#" + data[keys].value.FileID} 
+                        onClick={() => {
+                            this.onClick(data[keys].value.FileID)
+                        }} style={{ color: "#6AA2B8" }} data-toggle="collapse" aria-expanded="false">{data[keys].value.FileName}</a></div>
                     <div className="col-3 col-style">{moment(data[keys].value.CreateDateTime).format('DD/MM/YYYY')}<br />{moment(data[keys].value.CreateDateTime).format('h:m a')}</div>
                     <div className="col-3 col-style">{data[keys].value.sender}</div>
-                 {/*   <div className="col-2 col-style">{data[keys].value.receiver}</div>*/}
                     <div className={"col-3 col-style"}>{data[keys].value.FileStatus}</div>
                 </div>
             )
@@ -488,7 +491,7 @@ rendersearchbar()
                                     }, 50);
                                 }}>{item.SubscriberNo}</a></td>
                             <td className="list-item-style claims-text">{item.Enrollment_type}</td>
-                <td className="list-item-style claims-text">{item.Insurer_Status}</td>
+                            <td className="list-item-style claims-text">{item.Insurer_Status}</td>
                             <td className="list-item-style claims-text">{item.status1}</td>
                             <td className="list-item-style claims-text">{item.Error}</td>
                             
@@ -509,7 +512,7 @@ rendersearchbar()
                         breakLabel={'...'}
                         breakClassName={'page-link'}
                         initialPage={this.state.initialPage}
-                        pageCount={count}
+                        pageCount={Math.floor((data[keys].value.dcount / 10) + (data[keys].value.dcount % 10 > 0 ? 1 : 0))}
                         marginPagesDisplayed={2}
                         pageRangeDisplayed={5}
                         onPageChange={(page) => {this.handlePageClick(page, keys)}}

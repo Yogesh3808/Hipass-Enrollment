@@ -1,6 +1,7 @@
 import React from 'react';
 import '../TradingPartnerConfiguration/style.css';
 import { Topbar } from '../../components/Topbar';
+import Urls from '../../../helpers/Urls';
 
 const $ = window.$;
 export class EditConfiguration extends React.Component {
@@ -32,7 +33,7 @@ export class EditConfiguration extends React.Component {
     }
 
     getData(query, flag, iter){
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

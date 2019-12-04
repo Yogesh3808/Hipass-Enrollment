@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Files/files-styles.css';
 import { Topbar } from '../../components/Topbar';
+import Urls from '../../../helpers/Urls';
 
 export class ViewEdit extends React.Component {
 
@@ -28,7 +29,7 @@ export class ViewEdit extends React.Component {
             query = '{ Rules(flag:"c" transaction:"Claims 837I Medicaid") { seqid transid loopid segment element sub_element operator value severity condition elementname flag }}'
         }
 
-        fetch('http://localhost:4000/graphQl', {
+        fetch(Urls.base_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
