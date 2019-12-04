@@ -126,7 +126,7 @@ export class Files_834 extends React.Component {
   
   
     getData() {
-        let query = '{SP_834FilecountwisedetailsGQL(Type:'+'"'+this.props.flag+'"'+'){ FileName FileID  sender receiver FileStatus CreateDateTime dcount  }}'
+        let query = '{SP_834FilecountwisedetailsGQL(Type:'+'"'+this.props.match.params.new_path+'"'+'){ FileName FileID  sender receiver FileStatus CreateDateTime dcount  }}'
         console.log('query : ' + query)
         fetch(Urls.base_url, {
             method: 'POST',
@@ -177,7 +177,7 @@ export class Files_834 extends React.Component {
         if(this.state.isInitial){
             return
         }
-        let query = '{ SP_834FileDetailsPagingGQL(Type :'+'"'+this.props.flag+'"'+', PageIndex:'+this.state.page+', FileID: '+fileId+') { SubscriberNo fileid Enrollment_type InsLineCode Insurer_Status TransCode MemberAmount Error CreateDateTime status1 } }'
+        let query = '{ SP_834FileDetailsPagingGQL(Type :'+'"'+this.props.match.params.new_path+'"'+', PageIndex:'+this.state.page+', FileID: '+fileId+') { SubscriberNo fileid Enrollment_type InsLineCode Insurer_Status TransCode MemberAmount Error CreateDateTime status1 } }'
         console.log(query)
         fetch(Urls.base_url, {
             method: 'POST',
@@ -307,7 +307,7 @@ export class Files_834 extends React.Component {
                     let file = [
                        {key : "File Name", value : data[0].FileName},
                         {key : "File Date", value : data[0].CreateDateTime},
-                        {key : "Sender", value : data[0].sender},
+                        {key : "Sender", value : data[0].sender}, 
                    // {key : "Receiver", value : data[0].receiver}     
                     ]
                   
@@ -462,7 +462,7 @@ rendersearchbar()
         let row = []
         let col = []
         let data = this.state.claimsObj;
-
+        console.log('this is the data ', data)
         Object.keys(data).map((keys) => {
             row.push(
                 <div className="row">

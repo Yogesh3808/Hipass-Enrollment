@@ -5,6 +5,8 @@ import moment from 'moment';
 import { Files_834 } from '../../Files_834';
 import { Topbar } from '../../../components/Topbar';
 import Urls from '../../../../helpers/Urls';
+import Strings from '../../../../helpers/Strings';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 const data = {
     labels: [
@@ -357,20 +359,32 @@ export class EnrollmentInbound extends React.Component {
         const data = this.state.summaryList;
 
         data.forEach((d) => {
+            let url = ''
+            if(d.name == 'Total Files'){
+                url = Strings.claimsDashboard_834_details + '/total'
+            } else if(d.name == 'Total Errors'){
+                url = Strings.EnrollmentError + '/error'
+            } else if(d.name == 'Resubmit'){
+                url = Strings.claimsDashboard_834_details + '/Resubmit'
+            }
+
             row.push(
                 <tr>
                     <td className="bold-text">{d.name}</td>
                     {
-                        d.name == 'Total Enrollment' ?
-                            <td className="blue bold-text summary-values">{d.value}</td> :
-                            <td>
-                                <a href="#" onClick={() => { this.showFile(d.name) }} className={
-                                    (d.name == 'Total Enrollment' || d.name == 'Additions' || d.name == 'Total Files') ? 'blue bold-text summary-values' :
-                                        (d.name == 'Changes' || d.name == 'Termination') ? 'purple bold-text summary-values' :
-                                            (d.name == 'Total Errors' || d.name == 'Resubmit') ? 'red bold-text summary-values' : ''
-
-                                }>{d.value}</a>
-                            </td>
+                        d.name == 'Total Enrollment' ? 
+                        <td className="blue bold-text summary-values">{d.value}</td> :
+                        <td>
+                            <a href="#" 
+                                onClick={() => { 
+                                    // this.showFile(d.name) 
+                                }} className={
+                                (d.name == 'Total Enrollment' || d.name == 'Additions' || d.name == 'Total Files') ? 'blue bold-text summary-values' :
+                                (d.name == 'Changes' || d.name == 'Termination') ? 'purple bold-text summary-values' :
+                                (d.name == 'Total Errors' || d.name == 'Resubmit') ? 'red bold-text summary-values' : ''
+                                
+                            }><Link to={url}>{d.value}</Link></a>
+                        </td>
                     }
                 </tr>
             )
