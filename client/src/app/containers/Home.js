@@ -19,6 +19,7 @@ import { FullFileCompare } from './FullFileCompare';
 import { Files_834 } from './Files_834'; 
 import {EnrollmentDetails} from './Enrollment_details'
 import {EnrollmentErrors} from './Enrollment_errors'
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 const $ = window.$;
 export class Home extends React.Component{
@@ -53,7 +54,7 @@ export class Home extends React.Component{
                         />
                     </div>
                     <div className="col-10" style={{height : $(window).height()}}>
-                        {
+                        {/* {
                             (this.state.flag == Strings.realTime || this.state.flag == Strings.realTime_276 )? <RealTime apiflag={this.state.flag == Strings.realTime_276 ? 1 : 0}/> : 
                             this.state.flag == Strings.tradingPartnerConfiguration ? <TradingPartnerConfiguration/> : 
                             this.state.flag == Strings.submitClaims ? <SubmitClaim/> :
@@ -71,7 +72,7 @@ export class Home extends React.Component{
                             this.state.flag == Strings.EnrollmentDetails ? <EnrollmentDetails /> :
                             this.state.flag == Strings.EnrollmentErrors ? <EnrollmentErrors /> :
                             <EnrollmentInbound />
-                        }
+                        } */}
                     </div>
                 </div>
             </div>

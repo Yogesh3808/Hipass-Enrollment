@@ -26,7 +26,7 @@ const Strings = {
     researchQueue : 'researchQueue',
     viewEdit : 'viewEdit',
     fullFile834 : 'fullFile834',
-    EnrollmentError : 'Enrollment_Error',
+    EnrollmentError : 'Enrollment_Error', 
     EnrollmentDetails: 'EnrollmentDetails',
     EnrollmentErrors: 'EnrollmentErrors',
 }

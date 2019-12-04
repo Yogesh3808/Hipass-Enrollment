@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 import Strings from '../../../helpers/Strings';
-
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
 export class Sidebar extends React.Component{
     
@@ -58,9 +58,19 @@ export class Sidebar extends React.Component{
     renderItems(key, value, array){
         let row = []
         array.forEach(element => {
+            let addon = ''
+            if(element.key == Strings.claimsDashboard_834_details){
+                addon = '/total' 
+            } else if(element.key == Strings.EnrollmentError){
+                addon = '/error' 
+            } else {
+                addon = ''
+            }
+
             row.push(
                 <li>
-                    <a href="#" onClick={() => {this.handleClick(element.key)}}>{element.value}</a>
+                    {/* <a href="#" onClick={() => {this.handleClick(element.key)}}>{element.value}</a> */}
+                    <Link to={'/' + element.key + addon}>{element.value}</Link>
                 </li>
             )
         });
