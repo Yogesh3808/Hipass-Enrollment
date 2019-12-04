@@ -655,7 +655,7 @@ rendersearchbar()
 
     render() {
         var title=""
-        if(this.props.flag=="error")
+        if(this.props.match.params.new_path=="error")
         {
             title="Enrollment Errors";
         }
