@@ -56,7 +56,9 @@ export class Files_834 extends React.Component {
    })
  })
    .then(r => r.json())
-   .then(data => console.log('data returned:', data));
+   .then(data => 
+    alert(data.data.SP_Ignore834errordetails)
+    );
     }
 
     
@@ -96,6 +98,7 @@ export class Files_834 extends React.Component {
         var query = 'mutation{ SP_Update834errordetails(FileId :"'+ this.state.File_ID +'" '+ 'Nm109 :"'+this.state.subscriberNo +'" '+ ' Errordesc :"'+this.state.Error_Field +'" '+ 'Value :"'+ Updatefild +'"'+   
         ')'+
 '}'
+console.log(query)
    fetch('http://localhost:4000/graphQl', {
   method: 'POST',
   headers: {
@@ -108,8 +111,13 @@ export class Files_834 extends React.Component {
   })
 })
   .then(r => r.json())
-  .then(data => console.log('data returned:', data));
+  .then(data => 
+    alert(data.data.SP_Update834errordetails)
+    
       
+  );
+  
+  
     }
   
   
