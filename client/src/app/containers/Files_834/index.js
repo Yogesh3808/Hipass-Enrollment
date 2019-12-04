@@ -332,7 +332,7 @@ export class Files_834 extends React.Component {
                   {
                     dateofbirth= <input  onChange={(e) => this.dateofbirth(e, 'dateofbirth')} type='text' style={{width:"80px"}}></input>
                   }else{
-                    dateofbirth= data[0].dateofbirth
+                    dateofbirth= data[0].dob
                   }
 
                   var gender="";    
@@ -375,17 +375,17 @@ export class Files_834 extends React.Component {
                       
                     ]
     
-                    let coverage_data = []
-                    data.forEach(element => {
-                        coverage_data.push({
-                            'startDate': element.StartDate,
-                            'endDate': element.EndDate
-                        })
-                    });
+                    // let coverage_data = []
+                    // data.forEach(element => {
+                    //     coverage_data.push({
+                    //         'startDate': element.StartDate,
+                    //         'endDate': element.EndDate
+                    //     })
+                    // });
     
                     this.setState({
                         file: file,
-                        coverage_data: coverage_data,
+                        // coverage_data: coverage_data,
                         memberInfo: memberInfo,
                         File_ID:fileId,
                         Error_Field:data[0].Error_Field,
@@ -414,10 +414,10 @@ rendersearchbar()
              return (
          
             <div className="row">
-                <div className="col-3 col-header" style={{fontWeight:"bold"}}>File Name</div>
-                <div className="col-3 col-header" style={{fontWeight:"bold"}}>File Date</div>
+                <div className="col-4 col-header" style={{fontWeight:"bold"}}>File Name</div>
+                <div className="col-2 col-header" style={{fontWeight:"bold"}}>File Date</div>
                 <div className="col-3 col-header" style={{fontWeight:"bold"}}>Submitter</div>
-          {/*     <div className="col-2 col-header" style={{fontWeight:"bold"}}>Receiver</div>*/}
+  
                 <div className="col-3 col-header" style={{fontWeight:"bold"}}>File Status</div>
             </div>
         )
@@ -466,11 +466,11 @@ rendersearchbar()
         Object.keys(data).map((keys) => {
             row.push(
                 <div className="row">
-                    <div className="col-3 col-style"><a href={"#" + data[keys].value.FileID} 
+                    <div className="col-4 col-style"><a href={"#" + data[keys].value.FileID} 
                         onClick={() => {
                             this.onClick(data[keys].value.FileID)
                         }} style={{ color: "#6AA2B8" }} data-toggle="collapse" aria-expanded="false">{data[keys].value.FileName}</a></div>
-                    <div className="col-3 col-style">{moment(data[keys].value.CreateDateTime).format('DD/MM/YYYY')}<br />{moment(data[keys].value.CreateDateTime).format('h:m a')}</div>
+                    <div className="col-2 col-style">{moment(data[keys].value.CreateDateTime).format('DD/MM/YYYY')}<br />{moment(data[keys].value.CreateDateTime).format('h:m a')}</div>
                     <div className="col-3 col-style">{data[keys].value.sender}</div>
                     <div className={"col-3 col-style"}>{data[keys].value.FileStatus}</div>
                 </div>
@@ -598,7 +598,7 @@ rendersearchbar()
     renderTable() {
         let row = []
         const data = this.state.coverage_data;
-   
+   console.log("testing",data);
         data.forEach((item) => {
             row.push(
                 <tr>
@@ -642,7 +642,7 @@ rendersearchbar()
                     this.state.coverage_data.length > 0 ?
                         <div>
                             <div className="table-head header-style claim-list">Coverage Data</div>
-                            <table className="table-bordered body-style">
+                            <table className="table-bordered body-style" style={{width: "100%"}}>
                                 {this.renderCoverageHeader()}
                                 {this.renderTable()}
                             </table> 
@@ -653,12 +653,22 @@ rendersearchbar()
     }
 
     render() {
+        var title=""
+        if(this.props.flag=="error")
+        {
+            title="Enrollment Errors";
+        }
+        else
+        {
+            title="Enrollment Details";
+        }
         return (
           
             <div>
                   
                 {this.rendersearchbar()}
-                <label style={{color: '#139DC9'}}><b>Enrollment Details</b></label>
+                
+        <label style={{color: '#139DC9'}}><b>{title}</b></label>
             <div className="row padding-left">
                 <div className="col-7 claim-list file-table">
                     {this.state.claimsObj ? this.renderList() : null}

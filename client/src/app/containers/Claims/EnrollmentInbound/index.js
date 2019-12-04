@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { Pie, Bar } from 'react-chartjs-2';
 import moment from 'moment';
-import {Files_834} from '../../Files_834';
+import { Files_834 } from '../../Files_834';
 import { Topbar } from '../../../components/Topbar';
 import Urls from '../../../../helpers/Urls';
 
@@ -18,7 +18,7 @@ const data = {
             '#139DC9',
             '#9dc913',
             '#83D2B4',
-            
+
         ],
         hoverBackgroundColor: [
             '#139DC9',
@@ -83,7 +83,7 @@ export class EnrollmentInbound extends React.Component {
         this.state = {
             claimsList: [],
             summaryList: [],
-            errorCount:[]
+            errorCount: []
         }
 
         this.showFile = this.showFile.bind(this)
@@ -106,7 +106,7 @@ export class EnrollmentInbound extends React.Component {
         }, 50);
     }
 
-    getErrorCount(){
+    getErrorCount() {
         let query = '{ CompareFileError834 { dbdesc error_desc RCount } }'
         fetch(Urls.base_url, {
             method: 'POST',
@@ -121,7 +121,7 @@ export class EnrollmentInbound extends React.Component {
                 let data = []
                 data = r.data.CompareFileError834
                 this.setState({
-                    errorCount : data
+                    errorCount: data
                 })
             })
             .then(data => console.log('data returned:', data));
@@ -184,7 +184,7 @@ export class EnrollmentInbound extends React.Component {
                     // { name: 'Changes', value: counts.Change },
                     // { name: 'Termination', value: counts.term },
                     { name: 'Total Errors', value: counts.Error },
-                    { name: 'Resubmit', value: counts.Resubmit}
+                    { name: 'Resubmit', value: counts.Resubmit }
                 ]
 
                 this.setState({
@@ -200,7 +200,7 @@ export class EnrollmentInbound extends React.Component {
     renderSearchBar() {
         return (
             <div className="row">
-           
+
                 <input type="text" name="name" className="input-style" placeholder="Search" />
             </div>
         )
@@ -232,20 +232,20 @@ export class EnrollmentInbound extends React.Component {
                             },
                             tooltips: {
                                 enabled: false
-                              },
-                              pieceLabel: {
+                            },
+                            pieceLabel: {
                                 render: 'label',
                                 position: 'outside'
-                              },
-                              responsive: true,
-                              legend: {
+                            },
+                            responsive: true,
+                            legend: {
                                 position: 'bottom',
                                 display: 'false'
-                              },
-                              animation: {
+                            },
+                            animation: {
                                 animateScale: true,
                                 animateRotate: true
-                              }
+                            }
                         }}
                         width={100}
                         height={70} />
@@ -262,14 +262,14 @@ export class EnrollmentInbound extends React.Component {
                             pieceLabel: {
                                 render: 'label',
                                 position: 'outside'
-                              },
+                            },
                         }} />
                 </div>
             </div>
         )
     }
 
-    renderPieChart(){
+    renderPieChart() {
         return (
             <div className="row chart">
                 <div className="col-12">
@@ -282,25 +282,25 @@ export class EnrollmentInbound extends React.Component {
                             },
                             tooltips: {
                                 enabled: false
-                              },
-                              pieceLabel: {
+                            },
+                            pieceLabel: {
                                 render: 'label',
                                 position: 'outside'
-                              },
-                              responsive: true,
-                              legend: {
+                            },
+                            responsive: true,
+                            legend: {
                                 position: 'bottom',
                                 display: 'false'
-                              },
-                              animation: {
+                            },
+                            animation: {
                                 animateScale: true,
                                 animateRotate: true
-                              }
+                            }
                         }}
                         width={100}
                         height={100} />
                 </div>
-                </div>
+            </div>
         )
     }
     renderList() {
@@ -331,18 +331,18 @@ export class EnrollmentInbound extends React.Component {
 
     showFile(name) {
         let input = ''
-        if(name == 'Additions'){
+        if (name == 'Additions') {
             input = 'add'
-        } else if(name == 'Total Files'){
+        } else if (name == 'Total Files') {
             input = 'total'
-        } else if(name == 'Changes'){
+        } else if (name == 'Changes') {
             input = 'change'
-        } else if(name == 'Termination'){
+        } else if (name == 'Termination') {
             input = 'term'
-        } else if(name == 'Total Errors'){
+        } else if (name == 'Total Errors') {
             input = 'error'
         }
-         else if(name == 'Resubmit'){
+        else if (name == 'Resubmit') {
             input = 'Resubmit'
         }
 
@@ -361,16 +361,16 @@ export class EnrollmentInbound extends React.Component {
                 <tr>
                     <td className="bold-text">{d.name}</td>
                     {
-                        d.name == 'Total Enrollment' ? 
-                        <td className="blue bold-text summary-values">{d.value}</td> :
-                        <td>
-                            <a href="#" onClick={() => { this.showFile(d.name) }} className={
-                                (d.name == 'Total Enrollment' || d.name == 'Additions' || d.name == 'Total Files') ? 'blue bold-text summary-values' :
-                                (d.name == 'Changes' || d.name == 'Termination') ? 'purple bold-text summary-values' :
-                                (d.name == 'Total Errors' || d.name == 'Resubmit') ? 'red bold-text summary-values' : ''
-                                
-                            }>{d.value}</a>
-                        </td>
+                        d.name == 'Total Enrollment' ?
+                            <td className="blue bold-text summary-values">{d.value}</td> :
+                            <td>
+                                <a href="#" onClick={() => { this.showFile(d.name) }} className={
+                                    (d.name == 'Total Enrollment' || d.name == 'Additions' || d.name == 'Total Files') ? 'blue bold-text summary-values' :
+                                        (d.name == 'Changes' || d.name == 'Termination') ? 'purple bold-text summary-values' :
+                                            (d.name == 'Total Errors' || d.name == 'Resubmit') ? 'red bold-text summary-values' : ''
+
+                                }>{d.value}</a>
+                            </td>
                     }
                 </tr>
             )
@@ -385,30 +385,27 @@ export class EnrollmentInbound extends React.Component {
         );
     }
 
-    renderCountTable(){
+    renderCountTable() {
         let row = []
         let data = this.state.errorCount
         data.forEach(element => {
             row.push(
                 <tr>
                     <td className="padding">{element.error_desc}</td>
-                    <td className="padding" style={{ paddingLeft: "30px", padding: "5px", textAlign: "right"}}>
+                    <td className="padding" style={{ paddingLeft: "30px", padding: "5px", textAlign: "right" }}>
                         {element.RCount}
                     </td>
                 </tr>
             )
-        }); 
+        });
 
-        return(row)
+        return (row)
     }
 
     render() {
         return (
             <div>
-                {this.renderSearchBar()}
-                <hr className="colorhr"></hr>
-                <label style={{color: '#139DC9'}}><b>834 Enrollment Dashboard</b></label>
-                <Topbar flag={2}/>
+
                 {
                     this.state.showFile
                         ?
@@ -416,15 +413,22 @@ export class EnrollmentInbound extends React.Component {
                             flag={this.state.flag}
                         />
                         :
-                        <div className="row">
-                            <div className="col-8">
-                                {this.renderCharts()}
-                                {this.renderList()}
-                            </div>
-                            <div className="col-4">
-                                {this.renderSummary()}
-                                {this.renderPieChart()}
-                                
+                        <div>
+                            {this.renderSearchBar()}
+                            <hr className="colorhr"></hr>
+                            <label style={{ color: '#139DC9' }}><b>834 Enrollment Dashboard</b></label>
+                            <Topbar flag={2} />
+
+                            <div className="row">
+                                <div className="col-8">
+                                    {this.renderCharts()}
+                                    {this.renderList()}
+                                </div>
+                                <div className="col-4">
+                                    {this.renderSummary()}
+                                    {this.renderPieChart()}
+
+                                </div>
                             </div>
                         </div>
                 }

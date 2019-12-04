@@ -110,7 +110,7 @@ export class Sidebar extends React.Component{
 
     render() {
         return (
-            <nav id="sidebar">
+            <nav id="sidebar" style={{position:"fixed"}}>
                 <ul className="list-unstyled components">
                     {this.renderTabs()}
                     {this.renderSidebarItems()}

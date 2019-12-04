@@ -227,8 +227,8 @@ topbar(){
                 <label className="list-header">Select Trading Partner </label>
                     <select className="form-control list-header" id="state">
                             <option value="">Select Trading Partner</option>
-                            <option selected="selected" value="1">Trading Partner 1</option>
-                            <option value="2">Trading Partner 2</option>
+                            <option value="CADHCS_5010_834">CADHCS_5010_834</option>
+<option selected="selected" value="GH GENERATIONS">GH GENERATIONS</option>
                     </select>
                    
             </div>
