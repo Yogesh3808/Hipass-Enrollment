@@ -462,7 +462,7 @@ rendersearchbar()
         let row = []
         let col = []
         let data = this.state.claimsObj;
-
+        console.log('this is the data ', data)
         Object.keys(data).map((keys) => {
             row.push(
                 <div className="row">
