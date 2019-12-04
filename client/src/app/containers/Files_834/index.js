@@ -62,7 +62,11 @@ export class Files_834 extends React.Component {
  })
    .then(r => r.json())
    .then(data => 
-    alert(data.data.SP_Ignore834errordetails)
+    alert(data.data.SP_Ignore834errordetails),
+    setTimeout(() => {
+        window.location.reload()
+    }, 1000)
+   
     );
     }
 
@@ -75,12 +79,7 @@ export class Files_834 extends React.Component {
             Updatefild = this.state.subscriberNo;
             
         }
-        if (this.state.Error_Field == "PolicyNo")
-        {
-            Updatefild = this.state.PolicyNo;
-            
-        }
-        if (this.state.Error_Field == "dob")
+      if (this.state.Error_Field == "dob")
         {
             Updatefild = this.state.dateofbirth;
             
@@ -95,7 +94,7 @@ export class Files_834 extends React.Component {
             Updatefild = this.state.PolicyNo;
             
         }
-        if (this.state.Error_Field == "DepartmentNo")
+        if (this.state.Error_Field == "DTP336")
         {
             Updatefild = this.state.DepartmentNo;
             
@@ -116,8 +115,10 @@ export class Files_834 extends React.Component {
 })
   .then(r => r.json())
   .then(data => 
-    alert(data.data.SP_Update834errordetails)
-    
+    alert(data.data.SP_Update834errordetails),
+    setTimeout(() => {
+        window.location.reload()
+    }, 1000)
       
   );
   
@@ -345,11 +346,11 @@ export class Files_834 extends React.Component {
                   }
                   var DepartmentNo="";    
                
-                  if(CheckError=="DepartmentNo")
+                  if(CheckError=="DTP336")
                   {
                     DepartmentNo= <input type='text' onChange={(e) => this.DepartmentNo(e, 'DepartmentNo')} style={{width:"80px"}}></input>
                   }else{
-                    DepartmentNo= data[0].Department_Agency
+                    DepartmentNo= data[0].DTP_336_Employment_BeginDT
                   }
                     let memberInfo = [
                        {key : "First Name", value: data[0].MemberFName},
@@ -363,10 +364,10 @@ export class Files_834 extends React.Component {
                         {key : "Dob", value: dateofbirth},
                         {key : "Gender", value: gender},                                            
                         {key : "Subscriber No",  value:SubscriberNo },
-                        {key : "Department Agency", value: DepartmentNo},
+                        {key : "Department Agency", value: data[0].Department_Agency},
                         {key : "Policy No", value:Member_Policy_No},
                         {key : "Enrollment Type", value: data[0].Enrollment_type},
-                        {key : "Employment Begin Date", value:data[0].DTP_336_Employment_BeginDT},
+                        {key : "Employment Begin Date", value:DepartmentNo},
                         {key : "Insurer Status", value: data[0].InsurerStatus},
                         {key : "Relationship", value: data[0].member_relationship_name},
                         {key : "Employment Status", value: data[0].Emplymentstatus},
