@@ -9,6 +9,7 @@ import { EnrollmentDetails } from './app/containers/Enrollment_details';
 import { Header } from './app/components/Header';
 import { Files_834 } from './app/containers/Files_834';
 import { EnrollmentErrors } from './app/containers/Enrollment_errors';
+import { EligibilityErrorsDelta } from './app/containers/Eligibility_error_delta';
 
 const $ = window.$;
 const routing = (
@@ -26,6 +27,7 @@ const routing = (
                     <Route path={'/'+ Strings.EnrollmentError  + '/:new_path'} component={Files_834} />
                     <Route path={'/'+ Strings.EnrollmentErrors} component={EnrollmentErrors} />
                     <Route path={'/'+ Strings.EnrollmentDetails} component={EnrollmentDetails} />
+                    <Route path={'/'+ Strings.EligibilityErrorsDelta} component={EligibilityErrorsDelta} />
                 </div>
             </div>
         </div>
