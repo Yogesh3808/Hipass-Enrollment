@@ -29,7 +29,11 @@ const Strings = {
     EnrollmentError : 'Enrollment_Error', 
     EnrollmentDetails: 'EnrollmentDetails',
     EnrollmentErrors: 'EnrollmentErrors',
-    EligibilityErrorsDelta :'EligibilityErrorsDelta'
+    EligibilityErrorsDelta :'EligibilityErrorsDelta',
+    HistoryEligibilityErrorsDelta: 'HistoryEligibilityErrorsDelta',
+    RateCodeDelta: 'RateCodeDelta',
+    PlanIntegrationEligibilityErrors: 'PlanIntegrationEligibilityErrors',
+    HistoryRateCodeDelta: 'HistoryRateCodeDelta'
 }
 
 export default Strings;
