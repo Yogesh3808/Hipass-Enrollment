@@ -36,7 +36,10 @@ const Strings = {
     HistoryEligibilityErrorsDelta: 'HistoryEligibilityErrorsDelta',
     RateCodeDelta: 'RateCodeDelta',
     PlanIntegrationEligibilityErrors: 'PlanIntegrationEligibilityErrors',
-    HistoryRateCodeDelta: 'HistoryRateCodeDelta'
+    HistoryRateCodeDelta: 'HistoryRateCodeDelta',
+    CustomDBDetails: 'CustomDBDetails',
+    EligibilityErrorsDuplicate: 'EligibilityErrorsDuplicate',
+    OutboundDetails: 'OutboundDetails'
 }
 
 export default Strings;

@@ -12,12 +12,14 @@ import { EnrollmentErrors } from './app/containers/Enrollment_errors';
 import { Outbound_dashboard } from './app/containers/Outbound_dashboard';
 import { Eligibility_Reconcile_Search } from './app/containers/Eligibility_Reconcile_Search';
 import { Eligibility_Errors } from './app/containers/Eligibility_Errors';
-
+import {CustomDBDetails} from './app/containers/CustomDB_Details'
 import { EligibilityErrorsDelta } from './app/containers/Eligibility_error_delta';
 import { HistoryEligibilityErrorsDelta } from './app/containers/History_eligibility_error'
 import {RateCodeDelta} from './app/containers/RateCode_delta'
 import {PlanIntegrationEligibilityErrors} from './app/containers/PlanIntegration_eligibility_errors'
 import {HistoryRateCodeDelta} from './app/containers/History_Ratecode_Delta'
+import {EligibilityErrorsDuplicate} from './app/containers/Duplicate_Eligibility_Error'
+import {OutboundDetails} from './app/containers/Outbound_details'
 
 const $ = window.$;
 const routing = (
@@ -43,6 +45,9 @@ const routing = (
                     <Route path={'/'+ Strings.RateCodeDelta} component={RateCodeDelta} />
                     <Route path={'/'+ Strings.PlanIntegrationEligibilityErrors} component={PlanIntegrationEligibilityErrors} />
                     <Route path={'/'+ Strings.HistoryRateCodeDelta} component={HistoryRateCodeDelta} />
+                    <Route path={'/'+ Strings.CustomDBDetails} component={CustomDBDetails} />
+                    <Route path={'/'+ Strings.EligibilityErrorsDuplicate} component={EligibilityErrorsDuplicate} />
+                    <Route path={'/'+ Strings.OutboundDetails} component={OutboundDetails} />
 
                 </div>
             </div>

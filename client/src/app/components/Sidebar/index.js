@@ -46,6 +46,9 @@ export class Sidebar extends React.Component{
                 {value: 'RateCode Delta', key:'RateCodeDelta'},
                 {value: 'Eligibility Errors(PlanIntegration)', key:'PlanIntegrationEligibilityErrors'},
                 {value: 'History RateCode Delta', key:'HistoryRateCodeDelta'},
+                {value: 'CustomDB Details', key: 'CustomDBDetails'},
+                {value: 'Eligibility Errors (Duplicate)', key: 'EligibilityErrorsDuplicate'},
+                {value: 'Outbound Details', key: 'OutboundDetails'}
                     
             ],
             eligibility: [
