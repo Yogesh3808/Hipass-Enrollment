@@ -41,29 +41,31 @@ export class Eligibility_Errors extends React.Component {
 
     render_eligibility_header() {
         return (
-            <tr className="table-head claims-text">
+          
+<tr className="table-head claims-text">
+                <th className="table-head-text">SFHPID </th>
+                <th className="table-head-text">CIN</th>
+                <th className="table-head-text">LastName</th>
+                <th className="table-head-text">FirstName</th>
+                <th className="table-head-text">Member Birth Date</th>
+                <th className="table-head-text">Eligibility Errors</th>
+                <th className="table-head-text">Inbound X12 Status</th>
+                <th className="table-head-text">Qnxt Status</th>
+                <th className="table-head-text">X12 Eff Date</th>
+                <th className="table-head-text">Qeff Date</th>
+                <th className="table-head-text">X12 Term Date</th>
+                <th className="table-head-text">Qend Date</th>
+                <th className="table-head-text">834 To QNXT</th>
+                <th className="table-head-text">Member Death Date</th>
+                <th className="table-head-text">FAME Details Status</th>
+                <th className="table-head-text">CustomDB Status</th>
+                <th className="table-head-text">Plan Integration Status</th>
+                <th className="table-head-text">IPA Status</th>
+            </tr>
 
-<th className="table-head-text">SFH...</th>
-                    <th className="table-head-text" >CIN</th>
-                    <th className="table-head-text">LastName</th>
-                    <th className="table-head-text">FirstName</th>
-                    <th className="table-head-text">Memb.........</th>
-                    <th className="table-head-text">Other Eligibility Errors</th>
-                    <th className="table-head-text" >Inbound X12 Status</th>
-                    <th className="table-head-text">QNXT Status</th>
-                    <th className="table-head-text">X12 Eff Date</th>
-                    <th className="table-head-text" >Qeff.......</th>
-                    <th className="table-head-text">X12 Term Date</th>
-                    <th className="table-head-text">Qen......</th>
-                    <th className="table-head-text">834ToQ.....</th>
-                    <th className="table-head-text" >Member Death Date</th>
-                    <th className="table-head-text">FAMED..</th>
-                    <th className="table-head-text" >Custo.. Status</th>
-                    <th className="table-head-text" >PlanInteg....</th>
-                    <th className="table-head-text">IPAStatus</th>
                   
              
-            </tr>
+          
         )
     }
 
@@ -71,7 +73,7 @@ export class Eligibility_Errors extends React.Component {
 
     eligibility_error() {
         return (
-            <table className="table table-bordered eligibility-list">
+            <table className="table table-bordered eligibility-list" id ="eligibiltyerror">
                 {this.render_eligibility_header()}
               
                 <tr>

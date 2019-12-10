@@ -45,24 +45,25 @@ export class Eligibility_Reconcile_Search extends React.Component {
     render_eligibility_header() {
         return (
             <tr className="table-head claims-text">
-                   <th  className="table-head-text" >SF...</th>
-                        <th  className="table-head-text" >CIN</th>
-                        <th  className="table-head-text">Last...</th>
-                        <th  className="table-head-text">First...</th>
-                        <th className="table-head-text" >Me...</th>
-                        <th  className="table-head-text">Eligibi...</th>
-                        <th className="table-head-text">Inbound X12 Status</th>
-                        <th className="table-head-text">Qnxt Status...</th>
-                        <th className="table-head-text">X12 Eff Date</th>
-                        <th className="table-head-text">Qeff...</th>
-                        <th className="table-head-text" >X12 Term Date</th>
-                        <th  className="table-head-text">Qen...</th>
-                        <th className="table-head-text">834To...</th>
-                        <th className="table-head-text">Member Death Date</th>
-                        <th className="table-head-text">Fame...</th>
-                        <th  className="table-head-text">Custo... Status</th>
-                        <th className="table-head-text">PlanInt</th>
-                        <th className="table-head-text">IPAS...</th>
+                 <th className="table-head-text">SFHPID </th>
+                <th className="table-head-text">CIN</th>
+                <th className="table-head-text">LastName</th>
+                <th className="table-head-text">FirstName</th>
+                <th className="table-head-text">Member Birth Date</th>
+                <th className="table-head-text">Eligibility Errors</th>
+                <th className="table-head-text">Inbound X12 Status</th>
+                <th className="table-head-text">Qnxt Status</th>
+                <th className="table-head-text">X12 Eff Date</th>
+                <th className="table-head-text">Qeff Date</th>
+                <th className="table-head-text">X12 Term Date</th>
+                <th className="table-head-text">Qend Date</th>
+                <th className="table-head-text">834 To QNXT</th>
+                <th className="table-head-text">Member Death Date</th>
+                <th className="table-head-text">FAME Details Status</th>
+                <th className="table-head-text">CustomDB Status</th>
+                <th className="table-head-text">Plan Integration Status</th>
+                <th className="table-head-text">IPA Status</th>
+                   
                         <th className="table-head-text">PlanCode</th>
              
             </tr>
@@ -84,7 +85,7 @@ export class Eligibility_Reconcile_Search extends React.Component {
 
     eligibility_error() {
         return (
-            <table className="table table-bordered eligibility-list">
+            <table className="table table-bordered eligibility-list" id ="paddingset">
                 {this.render_eligibility_header()}
                 <tr>
                         <td>123456783424</td>
