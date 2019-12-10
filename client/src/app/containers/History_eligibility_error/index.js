@@ -48,7 +48,7 @@ export class HistoryEligibilityErrorsDelta extends React.Component {
                 <th className="table-head-text">CIN</th>
                 <th className="table-head-text">LastName</th>
                 <th className="table-head-text">FirstName</th>
-                <th className="table-head-text">Member Birth Date</th>
+                <th className="table-head-text" style={{width: '8%'}}>Member Birth Date</th>
                 <th className="table-head-text">History Delta</th>
                 <th className="table-head-text">Inbound X12 Status</th>
                 <th className="table-head-text">Qnxt Status</th>
@@ -81,7 +81,7 @@ export class HistoryEligibilityErrorsDelta extends React.Component {
 
     eligibility_error() {
         return (
-            <table className="table table-bordered eligibility-list">
+            <table className="table table-bordered eligibility-list" id="eligibility">
                 {this.render_eligibility_header()}
                 <tr>
                     <td className="rightDisplay">1234153856</td>

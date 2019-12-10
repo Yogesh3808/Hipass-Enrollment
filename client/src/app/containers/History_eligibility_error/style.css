@@ -21,6 +21,6 @@ td{
 .claims-text{
     font-size: 9px !important;
 }
-.table td, .table th {
+#eligibility td {
     padding: 2px !important;
 }

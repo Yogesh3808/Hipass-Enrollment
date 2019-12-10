@@ -42,7 +42,7 @@ export class PlanIntegrationEligibilityErrors extends React.Component {
                 <th className="table-head-text">CIN</th>
                 <th className="table-head-text">LastName</th>
                 <th className="table-head-text">FirstName</th>
-                <th className="table-head-text" style={{width: '7%'}}>Member Birth Date</th>
+                <th className="table-head-text" style={{width: '10%'}}>Member Birth Date</th>
                 <th className="table-head-text">Error Type</th>
                 <th className="table-head-text">Inbound Status</th>
                 <th className="table-head-text">QNXT Status</th>
@@ -71,7 +71,7 @@ export class PlanIntegrationEligibilityErrors extends React.Component {
 
     eligibility_error() {
         return (
-            <table className="table table-bordered eligibility-list">
+            <table className="table table-bordered eligibility-list" id="page">
                 {this.render_eligibility_header()}
                 <tr>
                     <td>1234316156</td>

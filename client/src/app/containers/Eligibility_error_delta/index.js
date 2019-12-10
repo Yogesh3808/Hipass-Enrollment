@@ -79,7 +79,7 @@ export class EligibilityErrorsDelta extends React.Component {
 
     eligibility_error() {
         return (
-            <table className="table table-bordered eligibility-list">
+            <table className="table table-bordered eligibility-list" id="eligibilityError">
                 {this.render_eligibility_header()}
                 <tr>
                     <td className="rightDisplay">1234</td>
