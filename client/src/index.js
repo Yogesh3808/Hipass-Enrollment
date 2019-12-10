@@ -13,6 +13,11 @@ import { Outbound_dashboard } from './app/containers/Outbound_dashboard';
 import { Eligibility_Reconcile_Search } from './app/containers/Eligibility_Reconcile_Search';
 import { Eligibility_Errors } from './app/containers/Eligibility_Errors';
 
+import { EligibilityErrorsDelta } from './app/containers/Eligibility_error_delta';
+import { HistoryEligibilityErrorsDelta } from './app/containers/History_eligibility_error'
+import {RateCodeDelta} from './app/containers/RateCode_delta'
+import {PlanIntegrationEligibilityErrors} from './app/containers/PlanIntegration_eligibility_errors'
+import {HistoryRateCodeDelta} from './app/containers/History_Ratecode_Delta'
 
 const $ = window.$;
 const routing = (
@@ -33,6 +38,12 @@ const routing = (
                     <Route path={'/'+ Strings.Outbound_dashboard} component={Outbound_dashboard} />
                     <Route path={'/'+ Strings.Eligibility_Reconcile_Search} component={Eligibility_Reconcile_Search} />
                     <Route path={'/'+ Strings.Eligibility_Errors} component={Eligibility_Errors} />
+                    <Route path={'/'+ Strings.EligibilityErrorsDelta} component={EligibilityErrorsDelta} />
+                    <Route path={'/'+ Strings.HistoryEligibilityErrorsDelta} component={HistoryEligibilityErrorsDelta} />
+                    <Route path={'/'+ Strings.RateCodeDelta} component={RateCodeDelta} />
+                    <Route path={'/'+ Strings.PlanIntegrationEligibilityErrors} component={PlanIntegrationEligibilityErrors} />
+                    <Route path={'/'+ Strings.HistoryRateCodeDelta} component={HistoryRateCodeDelta} />
+
                 </div>
             </div>
         </div>

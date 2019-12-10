@@ -41,6 +41,12 @@ export class Sidebar extends React.Component{
                 {value: 'Eligibility Reconcile Search', key: 'Eligibility_Reconcile_Search'},
                 {value: 'Eligibility Errors', key: 'Eligibility_Errors'},
                 
+                {value: 'Eligibility Errors Delta', key:'EligibilityErrorsDelta'},
+                {value: 'History Eligibility Errors (Delta)', key:'HistoryEligibilityErrorsDelta'},
+                {value: 'RateCode Delta', key:'RateCodeDelta'},
+                {value: 'Eligibility Errors(PlanIntegration)', key:'PlanIntegrationEligibilityErrors'},
+                {value: 'History RateCode Delta', key:'HistoryRateCodeDelta'},
+                    
             ],
             eligibility: [
                 {value: 'Real Time - 270', key: 'realTime'},

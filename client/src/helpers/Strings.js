@@ -32,6 +32,11 @@ const Strings = {
     Outbound_dashboard:'Outbound_dashboard',
     Eligibility_Reconcile_Search:'Eligibility_Reconcile_Search',
     Eligibility_Errors:'Eligibility_Errors',
+    EligibilityErrorsDelta :'EligibilityErrorsDelta',
+    HistoryEligibilityErrorsDelta: 'HistoryEligibilityErrorsDelta',
+    RateCodeDelta: 'RateCodeDelta',
+    PlanIntegrationEligibilityErrors: 'PlanIntegrationEligibilityErrors',
+    HistoryRateCodeDelta: 'HistoryRateCodeDelta'
 }
 
 export default Strings;

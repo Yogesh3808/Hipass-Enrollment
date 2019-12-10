@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
 import Urls from '../../../helpers/Urls';
+import './style.css'
 
 const $ = window.$;
 export class Files_834 extends React.Component {
@@ -484,7 +485,7 @@ rendersearchbar()
                     col.push(
                         <tr>
                           
-                            <td className="list-item-style claims-text"><a href="#" style={{ color: "#6AA2B8" }} 
+                            <td className="list-item-style claims"><a href="#" style={{ color: "#6AA2B8" }} 
                                 onClick={() => { 
                                     this.setState({
                                         subscriberNo: item.SubscriberNo,
@@ -498,10 +499,10 @@ rendersearchbar()
                                         this.handleClick(keys, item.SubscriberNo, 2)
                                     }, 50);
                                 }}>{item.SubscriberNo}</a></td>
-                            <td className="list-item-style claims-text">{item.Enrollment_type}</td>
-                            <td className="list-item-style claims-text">{item.Insurer_Status}</td>
-                            <td className="list-item-style claims-text">{item.status1}</td>
-                            <td className="list-item-style claims-text">{item.Error}</td>
+                            <td className="list-item-style claims">{item.Enrollment_type}</td>
+                            <td className="list-item-style claims">{item.Insurer_Status}</td>
+                            <td className="list-item-style claims">{item.status1}</td>
+                            <td className="list-item-style claims">{item.Error}</td>
                             
                         </tr>
                     )
