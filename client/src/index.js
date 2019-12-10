@@ -9,6 +9,10 @@ import { EnrollmentDetails } from './app/containers/Enrollment_details';
 import { Header } from './app/components/Header';
 import { Files_834 } from './app/containers/Files_834';
 import { EnrollmentErrors } from './app/containers/Enrollment_errors';
+import { Outbound_dashboard } from './app/containers/Outbound_dashboard';
+import { Eligibility_Reconcile_Search } from './app/containers/Eligibility_Reconcile_Search';
+import { Eligibility_Errors } from './app/containers/Eligibility_Errors';
+
 
 const $ = window.$;
 const routing = (
@@ -26,6 +30,9 @@ const routing = (
                     <Route path={'/'+ Strings.EnrollmentError  + '/:new_path'} component={Files_834} />
                     <Route path={'/'+ Strings.EnrollmentErrors} component={EnrollmentErrors} />
                     <Route path={'/'+ Strings.EnrollmentDetails} component={EnrollmentDetails} />
+                    <Route path={'/'+ Strings.Outbound_dashboard} component={Outbound_dashboard} />
+                    <Route path={'/'+ Strings.Eligibility_Reconcile_Search} component={Eligibility_Reconcile_Search} />
+                    <Route path={'/'+ Strings.Eligibility_Errors} component={Eligibility_Errors} />
                 </div>
             </div>
         </div>

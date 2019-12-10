@@ -29,6 +29,9 @@ const Strings = {
     EnrollmentError : 'Enrollment_Error', 
     EnrollmentDetails: 'EnrollmentDetails',
     EnrollmentErrors: 'EnrollmentErrors',
+    Outbound_dashboard:'Outbound_dashboard',
+    Eligibility_Reconcile_Search:'Eligibility_Reconcile_Search',
+    Eligibility_Errors:'Eligibility_Errors',
 }
 
 export default Strings;
