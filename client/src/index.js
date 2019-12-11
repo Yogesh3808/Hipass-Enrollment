@@ -20,6 +20,7 @@ import {PlanIntegrationEligibilityErrors} from './app/containers/PlanIntegration
 import {HistoryRateCodeDelta} from './app/containers/History_Ratecode_Delta'
 import {EligibilityErrorsDuplicate} from './app/containers/Duplicate_Eligibility_Error'
 import {OutboundDetails} from './app/containers/Outbound_details'
+import {FullComparsion_dashboard} from './app/containers/Full_file_comparison_dashboard'
 
 const $ = window.$;
 const routing = (
@@ -48,7 +49,8 @@ const routing = (
                     <Route path={'/'+ Strings.CustomDBDetails} component={CustomDBDetails} />
                     <Route path={'/'+ Strings.EligibilityErrorsDuplicate} component={EligibilityErrorsDuplicate} />
                     <Route path={'/'+ Strings.OutboundDetails} component={OutboundDetails} />
-
+                    <Route path={'/'+ Strings.FullComparsion_dashboard} component={FullComparsion_dashboard} />
+                    
                 </div>
             </div>
         </div>

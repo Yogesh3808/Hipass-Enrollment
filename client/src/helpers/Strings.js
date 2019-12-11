@@ -39,7 +39,8 @@ const Strings = {
     HistoryRateCodeDelta: 'HistoryRateCodeDelta',
     CustomDBDetails: 'CustomDBDetails',
     EligibilityErrorsDuplicate: 'EligibilityErrorsDuplicate',
-    OutboundDetails: 'OutboundDetails'
+    OutboundDetails: 'OutboundDetails',
+    FullComparsion_dashboard: 'FullComparsion_dashboard'
 }
 
 export default Strings;
