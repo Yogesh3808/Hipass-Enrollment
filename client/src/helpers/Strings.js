@@ -36,7 +36,8 @@ const Strings = {
     HistoryEligibilityErrorsDelta: 'HistoryEligibilityErrorsDelta',
     RateCodeDelta: 'RateCodeDelta',
     PlanIntegrationEligibilityErrors: 'PlanIntegrationEligibilityErrors',
-    HistoryRateCodeDelta: 'HistoryRateCodeDelta'
+    HistoryRateCodeDelta: 'HistoryRateCodeDelta',
+    MedicalMonthly_Metrics:'MedicalMonthly_Metrics',
 }
 
 export default Strings;

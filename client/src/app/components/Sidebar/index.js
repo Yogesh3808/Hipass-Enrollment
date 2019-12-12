@@ -46,6 +46,8 @@ export class Sidebar extends React.Component{
                 {value: 'RateCode Delta', key:'RateCodeDelta'},
                 {value: 'Eligibility Errors(PlanIntegration)', key:'PlanIntegrationEligibilityErrors'},
                 {value: 'History RateCode Delta', key:'HistoryRateCodeDelta'},
+                {value: 'Medical Monthly Metrics', key:'MedicalMonthly_Metrics'},
+                
                     
             ],
             eligibility: [

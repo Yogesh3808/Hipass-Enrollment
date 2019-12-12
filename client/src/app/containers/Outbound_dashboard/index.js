@@ -120,25 +120,25 @@ export class Outbound_dashboard extends React.Component{
     rendermaindiv(){
         return(
             <div>
-           <div style={{width: "240px",  float:"left" , height:"90px" , color: "white" , background:"#43cc4c" , marginleft:"30px"}}>
+           <div style={{width: "240px",  float:"left" , height:"60px" , color: "white" , background:"#43cc4c" , marginleft:"30px"}}>
             <label style={{fontSize:"10px"}}>    All MC Eligibility to Beacon <br></br> 156.14K</label>
            </div>
    
-           <div style={{width: "240px",  float:"right" , height:"90px" , color: "white" , background:"#1c8c39" , marginleft:"50px"}}>
+           <div style={{width: "240px",  float:"right" , height:"60px" , color: "white" , background:"#1c8c39" , marginleft:"50px"}}>
            <label style={{fontSize:"10px"}}>  All MC Eligibility to VSP <br></br> 156.14K </label>
            </div>
          
-           <div style={{width: "240px",  float:"left" , height:"90px" , marginTop:"3px" , color: "white" , background:"#5578ad" , marginleft:"30px"}}>
+           <div style={{width: "240px",  float:"left" , height:"60px" , marginTop:"3px" , color: "white" , background:"#5578ad" , marginleft:"30px"}}>
            <label style={{fontSize:"10px"}}>  All MC Eligibility to perRxMCStatus <br></br> 156.14K </label>
            </div>
-           <div style={{width: "240px",  float:"right" , height:"90px" ,  marginTop:"3px" ,color: "white" , background:"#5578ad" , marginleft:"50px"}}>
+           <div style={{width: "240px",  float:"right" , height:"60px" ,  marginTop:"3px" ,color: "white" , background:"#5578ad" , marginleft:"50px"}}>
            <label style={{fontSize:"10px"}}>  All Part D Eligibility to perRxMMStatus<br></br> 156.14K </label>
            </div>
-           <div style={{width: "240px",  float:"left" , height:"90px" ,  marginTop:"3px" , color: "white" , background:"#f5c507" , marginleft:"30px"}}>
+           <div style={{width: "240px",  float:"left" , height:"60px" ,  marginTop:"3px" , color: "white" , background:"#f5c507" , marginleft:"30px"}}>
            <label style={{fontSize:"10px"}}>Outbound Errors
  <br></br> 156.14K </label>
            </div>
-           <div style={{width: "240px",  float:"right" , height:"90px" ,  marginTop:"3px",  color: "black" , background:"#ddedeb" , marginleft:"50px"}}>
+           <div style={{width: "240px",  float:"right" , height:"60px" ,  marginTop:"3px",  color: "black" , background:"#ddedeb" , marginleft:"50px"}}>
            <label style={{fontSize:"10px"}}>   To DPH & CPG <br></br> 156.14K </label>
            </div>
 
