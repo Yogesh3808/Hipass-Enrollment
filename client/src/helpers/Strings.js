@@ -38,6 +38,10 @@ const Strings = {
     PlanIntegrationEligibilityErrors: 'PlanIntegrationEligibilityErrors',
     HistoryRateCodeDelta: 'HistoryRateCodeDelta',
     MedicalMonthly_Metrics:'MedicalMonthly_Metrics',
+    CustomDBDetails: 'CustomDBDetails',
+    EligibilityErrorsDuplicate: 'EligibilityErrorsDuplicate',
+    OutboundDetails: 'OutboundDetails',
+    FullComparsion_dashboard: 'FullComparsion_dashboard'
 }
 
 export default Strings;

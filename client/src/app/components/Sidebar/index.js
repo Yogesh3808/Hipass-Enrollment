@@ -48,6 +48,10 @@ export class Sidebar extends React.Component{
                 {value: 'History RateCode Delta', key:'HistoryRateCodeDelta'},
                 {value: 'Medical Monthly Metrics', key:'MedicalMonthly_Metrics'},
                 
+                {value: 'CustomDB Details', key: 'CustomDBDetails'},
+                {value: 'Eligibility Errors (Duplicate)', key: 'EligibilityErrorsDuplicate'},
+                {value: 'Outbound Details', key: 'OutboundDetails'},
+                {value: 'Full File Comparison Dashboard', key: 'FullComparsion_dashboard'}
                     
             ],
             eligibility: [

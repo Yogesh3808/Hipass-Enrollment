@@ -12,7 +12,7 @@ import { EnrollmentErrors } from './app/containers/Enrollment_errors';
 import { Outbound_dashboard } from './app/containers/Outbound_dashboard';
 import { Eligibility_Reconcile_Search } from './app/containers/Eligibility_Reconcile_Search';
 import { Eligibility_Errors } from './app/containers/Eligibility_Errors';
-
+import {CustomDBDetails} from './app/containers/CustomDB_Details'
 import { EligibilityErrorsDelta } from './app/containers/Eligibility_error_delta';
 import { HistoryEligibilityErrorsDelta } from './app/containers/History_eligibility_error'
 import {RateCodeDelta} from './app/containers/RateCode_delta'
@@ -20,6 +20,9 @@ import {PlanIntegrationEligibilityErrors} from './app/containers/PlanIntegration
 import {HistoryRateCodeDelta} from './app/containers/History_Ratecode_Delta'
 import {MedicalMonthly_Metrics} from './app/containers/MedicalMonthly_Metrics'
 
+import {EligibilityErrorsDuplicate} from './app/containers/Duplicate_Eligibility_Error'
+import {OutboundDetails} from './app/containers/Outbound_details'
+import {FullComparsion_dashboard} from './app/containers/Full_file_comparison_dashboard'
 
 const $ = window.$;
 const routing = (
@@ -47,6 +50,11 @@ const routing = (
                     <Route path={'/'+ Strings.HistoryRateCodeDelta} component={HistoryRateCodeDelta} />
                     <Route path={'/'+ Strings.MedicalMonthly_Metrics} component={MedicalMonthly_Metrics} />
 
+                    <Route path={'/'+ Strings.CustomDBDetails} component={CustomDBDetails} />
+                    <Route path={'/'+ Strings.EligibilityErrorsDuplicate} component={EligibilityErrorsDuplicate} />
+                    <Route path={'/'+ Strings.OutboundDetails} component={OutboundDetails} />
+                    <Route path={'/'+ Strings.FullComparsion_dashboard} component={FullComparsion_dashboard} />
+                    
                 </div>
             </div>
         </div>
